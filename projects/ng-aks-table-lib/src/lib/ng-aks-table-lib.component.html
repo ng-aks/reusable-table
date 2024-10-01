@@ -1,0 +1,13 @@
+<div *ngIf="tableConfig && noTableDataFlag">
+  <table>
+    <tr>
+      <th *ngFor="let col of tableConfig?.tableHeaders;">{{col.label}}</th>
+    </tr>
+    <tr *ngFor="let item of tableConfig?.tableData;">
+      <td *ngFor="let col of tableConfig?.tableHeaders;">
+        {{item[col.value]}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="!tableConfig || (tableConfig && !noTableDataFlag)">{{noData}}</div>
