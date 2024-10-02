@@ -1,7 +1,7 @@
 {
   "name": "@ng-aks/table",
-  "version": "1.0.1",
-  "keywords": ["angular","table","reusable table","npm","data table",""],
+  "version": "1.1.1",
+  "keywords": ["angular","table","reusable table","npm","data table","json"],
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"

@@ -6,6 +6,9 @@ table{
   border: 1px solid;
   border-collapse: collapse ;
   tr{
+      th{
+        background: #eee;
+      }
       th,td{
           border: 1px solid;
           border-collapse: collapse ;

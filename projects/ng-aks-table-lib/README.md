@@ -1,24 +1,84 @@
-# NgAksTableLib
+# Angular Reusable Table
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
-## Code scaffolding
+## How to use reusable table in our project
 
-Run `ng generate component component-name --project ng-aks-table-lib` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-aks-table-lib`.
-> Note: Don't forget to add `--project ng-aks-table-lib` or else it will be added to the default project in your `angular.json` file. 
+Run `npm i @ng-aks/table` to install this library in your project. After install add module in app.module file.
 
-## Build
+```ts
+import { NgAksTableLibModule } from 'projects/ng-aks-table-lib/src/public-api';
 
-Run `ng build ng-aks-table-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  imports: [
+    NgAksTableLibModule
+  ],
+}) 
+```
 
-## Publishing
+now you have to add html part like this
 
-After building your library with `ng build ng-aks-table-lib`, go to the dist folder `cd dist/ng-aks-table-lib` and run `npm publish`.
+```html
+<ng-aks-table [tableConfig]="tableConfig"></ng-aks-table>
+```
+After add html part, add `tableConfig` in your `.ts` file like this.
+```ts
+export class AppComponent {
+  title = 'example';
+  tableConfig = DUMMY_DATA_TABLE_CONFIG;
+}
+export const DUMMY_DATA_TABLE_CONFIG = {
+  title: 'Reusable Table',
+  tableHeaders: [
+      {
+          label:'Name',
+          value:'name'
+      },
+      {
+          label:'City',
+          value:'city'
+      },
+      {
+          label:'Country',
+          value:'country'
+      }
+  ],
+  tableData: [
+      {
+          name: 'Ankit',
+          city: 'Delhi',
+          country: 'India'
+      },
+      {
+          name: 'Manish',
+          city: 'Gurgaon',
+          country: 'India'
+      },
+      {
+          name: 'Rahul',
+          city: 'Bangalore',
+          country: 'India'
+      }
+  ]
+}
+```
+the above data, you can use your api data or constant data as per your requirement.
+Please make sure, you are using correct data format wit below model
+```ts
+export interface TableConfigModel {
+    title?: string;
+    tableHeaders: HeaderDataTableConfigModel[];
+    tableData: Array<any>;
+}
 
-## Running unit tests
-
-Run `ng test ng-aks-table-lib` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export interface HeaderDataTableConfigModel {
+    label: string;
+    value: string;
+}
+```
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the this , please contact to [Ankit Kumar Sharma](https://www.ankitkumarsharma.com/)
+
+Thanks
