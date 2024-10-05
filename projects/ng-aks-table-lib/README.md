@@ -7,7 +7,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm i @ng-aks/table` to install this library in your project. After install add module in app.module file.
 
 ```ts
-import { NgAksTableLibModule } from 'projects/ng-aks-table-lib/src/public-api';
+import { NgAksTableLibModule } from '@ng-aks/table';
 
 @NgModule({
   imports: [
@@ -63,19 +63,7 @@ export const DUMMY_DATA_TABLE_CONFIG = {
 }
 ```
 the above data, you can use your api data or constant data as per your requirement.
-Please make sure, you are using correct data format wit below model
-```ts
-export interface TableConfigModel {
-    title?: string;
-    tableHeaders: HeaderDataTableConfigModel[];
-    tableData: Array<any>;
-}
-
-export interface HeaderDataTableConfigModel {
-    label: string;
-    value: string;
-}
-```
+Please make sure, you are using correct data format.
 
 ## Further help
 

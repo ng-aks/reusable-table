@@ -1,27 +1,72 @@
-# ReusableTable
+# Angular Reusable Table
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
-## Development server
+## How to use reusable table in our project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm i @ng-aks/table` to install this library in your project. After install add module in app.module file.
 
-## Code scaffolding
+```ts
+import { NgAksTableLibModule } from '@ng-aks/table';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
+  imports: [
+    NgAksTableLibModule
+  ],
+}) 
+```
 
-## Build
+now you have to add html part like this
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```html
+<ng-aks-table [tableConfig]="tableConfig"></ng-aks-table>
+```
+After add html part, add `tableConfig` in your `.ts` file like this.
+```ts
+export class AppComponent {
+  title = 'example';
+  tableConfig = DUMMY_DATA_TABLE_CONFIG;
+}
+export const DUMMY_DATA_TABLE_CONFIG = {
+  title: 'Reusable Table',
+  tableHeaders: [
+      {
+          label:'Name',
+          value:'name'
+      },
+      {
+          label:'City',
+          value:'city'
+      },
+      {
+          label:'Country',
+          value:'country'
+      }
+  ],
+  tableData: [
+      {
+          name: 'Ankit',
+          city: 'Delhi',
+          country: 'India'
+      },
+      {
+          name: 'Manish',
+          city: 'Gurgaon',
+          country: 'India'
+      },
+      {
+          name: 'Rahul',
+          city: 'Bangalore',
+          country: 'India'
+      }
+  ]
+}
+```
+the above data, you can use your api data or constant data as per your requirement.
+Please make sure, you are using correct data format.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the this , please contact to [Ankit Kumar Sharma](https://www.ankitkumarsharma.com/)
+
+Thanks
